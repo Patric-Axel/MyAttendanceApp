@@ -9,7 +9,7 @@
     android:background="@color/azul_oscuro"
     tools:context=".MainActivity">
 
-
+    <!--menu de bienvenida -->
     <androidx.cardview.widget.CardView
         android:id="@+id/contenimglogo"
         android:layout_width="140dp"
