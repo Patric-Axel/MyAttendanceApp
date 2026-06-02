@@ -1,0 +1,148 @@
+drop database if exists MyAttendanceApp;
+create database MyAttendanceApp;
+use MyAttendanceApp;
+
+create table tb_roles(
+idrol int not null primary key,
+descripcion varchar(15)
+);
+
+create table tb_estado_usu(
+idestado int not null primary key,
+descripcion varchar(50)
+);
+
+create table tb_estado_asistencia(
+idestadoasis int not null primary key,
+descripcion varchar(50)
+);
+
+create table tb_usuarios(
+idusuario int not null auto_increment primary key,
+nombres varchar(50) not null,
+apellidos varchar(50) not null,
+direccion varchar(100),
+email varchar(50) unique not null,
+celular varchar(15) not null,
+pwd varchar(255) not null,
+fotoperfil varchar(100),
+idestado int,
+idrol int,
+fecha date default (curdate()),
+constraint fk_estado foreign key(idestado) references tb_estado_usu(idestado),
+constraint fk_rol foreign key(idrol) references tb_roles(idrol)
+);
+
+create table tb_asistencia(
+idasistencia int primary key auto_increment,
+fecha date default (curdate()),
+fecharegistro datetime default current_timestamp,
+horaentrada time,
+horasalida time,
+horastrabajadas decimal(5,2),
+latitudentrada decimal (10,8),
+longitudentrada decimal (11,8),
+latitudsalida decimal (10,8),
+longitudsalida decimal (11,8),
+direntrada varchar(200),
+dirsalida varchar(200),
+fotoentrada varchar(200),
+fotosalida varchar(200),
+idestadoasis int,
+idusuario int,
+constraint fk_estadoasistencia foreign key(idestadoasis) references tb_estado_asistencia(idestadoasis),
+constraint fk_usuarios foreign key(idusuario) references tb_usuarios(idusuario),
+constraint uk_asistencia unique(idusuario, fecha)
+);
+
+
+insert into tb_roles values(1,'Administrador');
+insert into tb_roles values(2,'Empleado');
+
+insert into tb_estado_usu values(1,'Activo');
+insert into tb_estado_usu values(2,'Vacaciones');
+insert into tb_estado_usu values(3,'Cesado');
+
+insert into tb_estado_asistencia values (1,'Tardanza');
+insert into tb_estado_asistencia values (2,'Completo');
+insert into tb_estado_asistencia values (3,'Incompleto');
+insert into tb_estado_asistencia values (4,'Falta');
+insert into tb_estado_asistencia values (5,'Permiso');
+
+
+insert into tb_usuarios values (1,'Patric Axel','Gallegos Perez','Av la paz 343, vmt','admin@cibertec.pe','912492681','admin*','fotito123.mediafire.jpg',1,1,curdate());
+insert into tb_usuarios values (2,'Sancho Panza','Leon Garcia','Jr Mancho cahuide mzf lote03','colab1@cibertec.pe','987654321','123456789','mediavalmediafire.jpg',1,2,curdate());
+insert into tb_usuarios values (3,'Pedro Paramo','Lechowsky Miro','Los Cedros 123','colab2@cibertec.pe','912345678','111111111','clasicolitmediafire.jpg',3,2,curdate());
+
+
+-- registro de prueba //entrada
+insert into tb_asistencia(
+fecha,
+horaentrada,
+latitudentrada,
+longitudentrada,
+direntrada,
+fotoentrada,
+idestadoasis,
+idusuario)
+values(
+curdate(),
+'08:00:00',
+-12.046374,
+-77.042793,
+'Lima, Perú',
+'entrada_sancho.jpg',
+2,
+2);
+
+-- salida
+update tb_asistencia
+set
+horasalida = '18:00:00',
+horastrabajadas = 10.00,
+latitudsalida = -12.046500,
+longitudsalida = -77.043000,
+dirsalida = 'Lima, Perú',
+fotosalida = 'salida_sancho.jpg'
+where idusuario = 2
+and fecha = curdate();
+
+-- registro prueba 2// entrada
+insert into tb_asistencia(
+fecha,
+horaentrada,
+latitudentrada,
+longitudentrada,
+direntrada,
+fotoentrada,
+idestadoasis,
+idusuario)
+values(
+'2026-05-28',
+'08:15:00',
+-12.050000,
+-77.030000,
+'San Isidro, Lima',
+'entrada_pedro.jpg',
+1,
+3
+);
+
+-- salida
+update tb_asistencia
+set
+horasalida = '18:10:00',
+horastrabajadas = 9.92,
+latitudsalida = -12.051000,
+longitudsalida = -77.031000,
+dirsalida = 'San Isidro, Lima',
+fotosalida = 'salida_pedro.jpg'
+where idusuario = 3
+and fecha = '2026-05-28';
+
+
+select * from tb_roles;
+select * from tb_estado_usu;
+select * from tb_estado_asistencia;
+select * from tb_usuarios;
+select * from tb_asistencia;
