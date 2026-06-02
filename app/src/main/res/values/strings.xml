@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">MyAttendanceApp</string>
+    <string name="app_slogan">
+        Control de asistencia inteligente para actividades remotas. Fácil, seguro confiable y rápido.
+
+    </string>
+
+    <!--LOGIN -->
+    <string name="titulo_login">¡Bienvenido!</string>
+    <string name="subtitulo_login">Inicia sesión para continuar</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_pass">Contraseña</string>
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="olvido_contraseña">¿Olvidaste tu contraseña?</string>
+    <string name="sin_cuenta">¿No tienes cuenta?</string>
+    <string name="registar_cuenta">Regístrate</string>
+
+    <!--REGISTRO -->
+    <string name="titulo_registrar">Crear cuenta</string>
+    <string name="subtitulo_registrar">Completa tus datos para registrarte</string>
+    <string name="hint_nombres">Nombres</string>
+    <string name="hint_apellidos">Apellidos</string>
+    <string name="hint_direccion">Dirección</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_confirmarpass">Confirmar contraseña</string>
+    <string name="aceptar_tyc">Acepto los Términos y Condiciones</string>
+    <string name="btn_registrar">Registrarme</string>
+    <string name="link_ya_tienes_cuenta">¿Ya tienes cuenta?</string>
+    <string name="link_inicia_sesion">Inicia sesión</string>
+
+    <!--MENU PRINCIPAL/INCIO -->
+    <string name="mensaje_bienvenida">Hola, %1$s</string>
+    <string name="estado_del_dia">Estado de hoy</string>
+    <string name="asis_registro_entrada">Entrada registrada</string>
+    <string name="asis_registro_salida">Salida registrada</string>
+    <string name="asis_registro_pendiente">Pendiente</string>
+    <string name="asis_registro_Falta">Falta</string>
+    <string name="asis_registro_vacaciones">Vacaciones</string>
+    <string name="asis_registro_permiso">Permiso</string>
+    <string name="hora_entrada">Entrada</string>
+    <string name="hora_salida">Salida</string>
+    <string name="horas_trabajadas">Horas trabajadas</string>
+    <string name="btn_entrada">Registrar entrada</string>
+    <string name="btn_salida">Registrar salida</string>
+
+    <!--ASISTENCIA -->
+    <string name="titulo_marcar_salida">Marcar Salida</string>
+    <string name="titulo_marcar_entrada">Marcar Entrada</string>
+    <string name="subtitulo_entrada_salida">Para registrar tu actividad, debemos verificar tu ubicación y tomar una selfie</string>
+    <string name="titulo_gps">Ubicación GPS</string>
+    <string name="titulo_foto">Fotografía</string>
+    <string name="cargando_gps">Obteniendo ubicación....</string>
+    <string name="subtitulo_foto_1">Tomar foto de entrada</string>
+    <string name="subtitulo_foto_2">Tomar foto de salida</string>
+    <string name="btn_tomar_fotografia">Tomar fotografía</string>
+    <string name="btn_cancelar">Cancelar</string>
+
+    <!--CONFIRMACIONES -->
+    <string name="mensaje_exito_entrada">¡Entrada registrada!</string>
+    <string name="mensaje_exito_salida">¡Salida registrada!</string>
+    <string name="descripcion_confirmacion">Tu actividad ha sido registrada exitosamente</string>
+    <string name="btn_incio">Ir al inicio</string>
+    <string name="fecha">Fecha:</string>
+    <string name="hora">Hora:</string>
+    <string name="ubicacion">Ubicación:</string>
+
+    <!--HISTORIAL -->
+    <string name="titulo_historial">Historial de asistencias</string>
+    <string name="buscar_fecha">Buscar por fecha</string>
+    <string name="titulo_detalle_asis">Detalle de asistencia</string>
+    <string name="estado_asis_completo">Completo</string>
+    <string name="estado_asis_incompleto">Incompleto</string>
+    <string name="estado_asis_tardanza">Tardanza</string>
+    <string name="estado_asis_falta">Falta</string>
+    <string name="estado_asis_permiso">Permiso</string>
+
+    <!--PERFIL -->
+    <string name="titulo_perfil">Mi perfil</string>
+    <string name="opc_info">Información personal</string>
+    <string name="opc_cambiar_pass">Cambiar contraseña</string>
+    <string name="opc_config">Configuración</string>
+    <string name="opc_cerrar_sesion">Cerrar sesión</string>
+
+    <!--CONFIGURACIÓN -->
+    <string name="titulo_configuracion">Configuración</string>
+    <string name="notificacion">Notificaciones</string>
+    <string name="recordatorio_salida">Recordatorio de salida</string>
+    <string name="politica_privacidad">Política de privacidad</string>
+    <string name="terminos_condiciones">Términos y condiciones</string>
+    <string name="app_version">Versión de la app</string>
+
+    <!--BARRA DE NAVEGACION/ SOLO SE MUESTRA EN LOS 3 SIGUIENTES-->
+    <string name="menu_incio">Inicio</string>
+    <string name="menu_historial">Historial</string>
+    <string name="menu_perfil">Perfil</string>
+
+
+    <!--ERRORES-->
+    <string name="campo_obligatorio">Este campo es obligatorio</string>
+    <string name="error_email">Correo electrónico inválido</string>
+    <string name="error_telefono">Número celular inválido</string>
+    <string name="error_pass">La contraseña debe tener al menos 8 caracteres</string>
+    <string name="error_pass_confirmacion">Las contraseñas no coinciden</string>
+    <string name="error_email_duplicado">El correo electrónico ya se encuentra registrado</string>
+    <string name="error_login">Correo o contraseña incorrectos</string>
+    <string name="error_inactivo">Usuario inactivo. Contacte al administrador</string>
+    <string name="error_assitencia_un_vez">Ya registró su asistencia el día de hoy</string>
+    <string name="error_marca_salida_sin_registrar">Debe registrar primero su entrada</string>
+    <string name="error_conexion">Error de conexión con el servidor</string>
+
+    <!--OTROS-->
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="foto_entrada">Foto de entrada</string>
+    <string name="foto_salida">Foto de salida</string>
+    <string name="sin_foto">Sin fotografía</string>
+    <string name="cd_logo_app">Logo MyAttendanceApp</string>
+    <string name="cd_foto_usuario">Fotografía del usuario</string>
+    <string name="cd_retroceder">Retroceder</string>
+    <string name="cd_menu">Menú principal</string>
+    <string name="splash_cargando">Cargando....</string>
+    <string name="splash_bienvenida">Bienvenido a MyAttendanceApp</string>
+
+
+</resources>
