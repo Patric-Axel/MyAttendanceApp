@@ -32,14 +32,19 @@
     <string name="mensaje_bienvenida">Hola, %1$s</string>
     <string name="estado_del_dia">Estado de hoy</string>
     <string name="asis_registro_entrada">Entrada registrada</string>
+    <string name="asis_sin_registro_entrada">Aún no registras tu entrada</string>
     <string name="asis_registro_salida">Salida registrada</string>
+    <string name="asis_sin_registro_salida">Aún no registras tu salida</string>
     <string name="asis_registro_pendiente">Pendiente</string>
     <string name="asis_registro_Falta">Falta</string>
     <string name="asis_registro_vacaciones">Vacaciones</string>
     <string name="asis_registro_permiso">Permiso</string>
     <string name="hora_entrada">Entrada</string>
+    <string name="h_hora_entrada">%1$s</string>
     <string name="hora_salida">Salida</string>
+    <string name="h_hora_salida">%1$s</string>
     <string name="horas_trabajadas">Horas trabajadas</string>
+    <string name="h_horas_trabajadas">%1$s</string>
     <string name="btn_entrada">Registrar entrada</string>
     <string name="btn_salida">Registrar salida</string>
 
@@ -119,6 +124,7 @@
     <string name="cd_menu">Menú principal</string>
     <string name="splash_cargando">Cargando....</string>
     <string name="splash_bienvenida">Bienvenido a MyAttendanceApp</string>
+    <string name="btn_volver">Volver</string>
 
 
 </resources>
