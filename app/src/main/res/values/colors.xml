@@ -15,6 +15,7 @@
     <color name="alerta">#FF9800</color>
     <color name="error">#F44336</color>
     <color name="estado_verde">#9AAFFFB2</color>
+    <color name="estado_compelto">#9AAFFFB2</color>
 
     <!-- FONDOS -->
     <color name="background">#F7F8FC</color>
