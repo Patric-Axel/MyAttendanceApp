@@ -25,8 +25,8 @@ direccion varchar(100),
 email varchar(50) unique not null,
 celular varchar(15) not null,
 pwd varchar(255) not null,
-fotoperfil varchar(100),
-idestado int,
+fotoperfil varchar(500),
+idestado int not null,
 idrol int,
 fecha date default (curdate()),
 constraint fk_estado foreign key(idestado) references tb_estado_usu(idestado),
@@ -44,12 +44,13 @@ latitudentrada decimal (10,8),
 longitudentrada decimal (11,8),
 latitudsalida decimal (10,8),
 longitudsalida decimal (11,8),
-direntrada varchar(200),
-dirsalida varchar(200),
-fotoentrada varchar(200),
-fotosalida varchar(200),
+direntrada varchar(500),
+dirsalida varchar(500),
+fotoentrada varchar(500),
+fotosalida varchar(500),
 idestadoasis int,
 idusuario int,
+observacion varchar(100),
 constraint fk_estadoasistencia foreign key(idestadoasis) references tb_estado_asistencia(idestadoasis),
 constraint fk_usuarios foreign key(idusuario) references tb_usuarios(idusuario),
 constraint uk_asistencia unique(idusuario, fecha)
@@ -65,14 +66,14 @@ insert into tb_estado_usu values(3,'Cesado');
 
 insert into tb_estado_asistencia values (1,'Tardanza');
 insert into tb_estado_asistencia values (2,'Completo');
-insert into tb_estado_asistencia values (3,'Incompleto');
+insert into tb_estado_asistencia values (3,'Permiso');
 insert into tb_estado_asistencia values (4,'Falta');
-insert into tb_estado_asistencia values (5,'Permiso');
 
-
-insert into tb_usuarios values (1,'Patric Axel','Gallegos Perez','Av la paz 343, vmt','admin@cibertec.pe','912492681','admin*','fotito123.mediafire.jpg',1,1,curdate());
+-- crear un nuevo usuario, usar el pass hasheado del nuevo user e insertar admin con ese el mismo pass hasheado
+insert into tb_usuarios values (1,'Patric Axel','Gallegos Perez','Av la paz 343, vmt','admin@cibertec.pe','912492681','$2a$10$7oJ1Wvz2fOPSKdkPeoKnoOz0kWF1JRwf98DmszF3nYz3fu9na4RGG','fotito123.mediafire.jpg',1,1,curdate());
 insert into tb_usuarios values (2,'Sancho Panza','Leon Garcia','Jr Mancho cahuide mzf lote03','colab1@cibertec.pe','987654321','123456789','mediavalmediafire.jpg',1,2,curdate());
 insert into tb_usuarios values (3,'Pedro Paramo','Lechowsky Miro','Los Cedros 123','colab2@cibertec.pe','912345678','111111111','clasicolitmediafire.jpg',3,2,curdate());
+insert into tb_usuarios values (5,'Patric','Gallegos','Av la paz 343, vmt','admin@gmail.pe','912492681','$2a$10$7oJ1Wvz2fOPSKdkPeoKnoOz0kWF1JRwf98DmszF3nYz3fu9na4RGG','fotito123.mediafire.jpg',1,1,curdate());
 
 
 -- registro de prueba //entrada
