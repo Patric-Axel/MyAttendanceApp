@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -55,4 +56,5 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation(libs.play.services.location)
 }

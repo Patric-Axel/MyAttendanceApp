@@ -45,6 +45,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/txtGpsEstado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cargando_gps"
@@ -56,7 +57,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:cardCornerRadius="10dp">
 
@@ -73,10 +74,19 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/txtFotoEstado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/subtitulo_foto_1"
                     android:textSize="12sp"/>
+
+                <ImageView
+                    android:id="@+id/imgPreviewFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="15dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
@@ -90,6 +100,17 @@
             android:textColor="#FFFFFF"
             android:backgroundTint="@color/fucsia"
             android:layout_marginTop="25dp"/>
+
+        <Button
+            android:id="@+id/btnContinuar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_aceptar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/fucsia"
+            android:layout_marginTop="15dp"
+            android:enabled="true"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btnCancelar"

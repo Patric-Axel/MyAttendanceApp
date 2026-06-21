@@ -80,8 +80,28 @@ import com.proyecto.myattendanceapp.databinding.ActivityLoginBinding
                         val respuesta = response.body()!!
 
                         if (respuesta.success) {
+
+                            val prefs = getSharedPreferences("MY_ATTENDANCE", MODE_PRIVATE)
+
+                            prefs.edit()
+                                .putInt("idusuario", respuesta.userId ?: 0)
+                                .putString("nombres", respuesta.nombres ?: "")
+                                .putString("apellidos", respuesta.apellidos ?: "")
+                                .putString("email", respuesta.email ?: "")
+                                .putInt("idrol", respuesta.idrol ?: 0)
+                                .putInt("idestado", respuesta.idestado ?: 0)
+                                .apply()
+
                             Toast.makeText(this@LoginActivity, respuesta.message, Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+
+                            val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+
+                            intent.putExtra("idusuario", respuesta.userId)
+                            intent.putExtra("nombres", respuesta.nombres)
+                            intent.putExtra("apellidos", respuesta.apellidos)
+                            intent.putExtra("email", respuesta.email)
+
+                            startActivity(intent)
                             finish()
 
                         } else {

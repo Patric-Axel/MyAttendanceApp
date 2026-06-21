@@ -45,6 +45,7 @@
                 android:text="@string/fecha"/>
 
             <TextView
+                android:id="@+id/txtFechaConfirmacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="16/05/2025"/>
@@ -63,6 +64,7 @@
                 android:text="@string/hora"/>
 
             <TextView
+                android:id="@+id/txtHoraConfirmacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="08:15 a.m."/>
@@ -81,12 +83,14 @@
                 android:text="@string/ubicacion"/>
 
             <TextView
+                android:id="@+id/txtUbicacionConfirmacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Miraflores, Lima"/>
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgFotoConfirmacion"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="25dp"

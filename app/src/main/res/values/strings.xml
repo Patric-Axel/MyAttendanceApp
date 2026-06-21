@@ -114,6 +114,7 @@
     <string name="error_conexion">Error de conexión con el servidor</string>
 
     <!--OTROS-->
+    <string name="reloj_value">reloj</string>
     <string name="btn_aceptar">Aceptar</string>
     <string name="foto_entrada">Foto de entrada</string>
     <string name="foto_salida">Foto de salida</string>
@@ -125,6 +126,13 @@
     <string name="splash_cargando">Cargando....</string>
     <string name="splash_bienvenida">Bienvenido a MyAttendanceApp</string>
     <string name="btn_volver">Volver</string>
+
+    <string name="sin_registro">Sin registro</string>
+    <string name="sin_entrada">--</string>
+    <string name="registrar_entrada">Registrar entrada</string>
+    <string name="sin_conexion">Sin conexión</string>
+    <string name="cero_horas">0 h</string>
+
 
 
 </resources>
