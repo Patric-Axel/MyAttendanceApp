@@ -5,6 +5,7 @@ import com.proyecto.myattendanceapp.data.model.AsistenciaResponse
 import com.proyecto.myattendanceapp.data.model.EntradaRequest
 import com.proyecto.myattendanceapp.data.model.LoginRequest
 import com.proyecto.myattendanceapp.data.model.RegisterRequest
+import com.proyecto.myattendanceapp.data.model.SalidaRequest
 import com.proyecto.myattendanceapp.data.model.SesionResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -25,4 +26,7 @@ interface ApiService {
 
     @POST("api/asistencia/entrada")
     fun registrarEntrada(@Body request: EntradaRequest): Call<AsistenciaResponse>
+
+    @POST("api/asistencia/salida")
+    fun registrarSalida(@Body request: SalidaRequest): Call<AsistenciaResponse>
 }

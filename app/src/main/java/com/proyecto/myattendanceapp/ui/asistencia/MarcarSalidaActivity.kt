@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.proyecto.myattendanceapp.databinding.ActivityEntradaBinding
 import com.google.android.gms.location.Priority
 import android.content.Intent
 import android.net.Uri
@@ -15,16 +14,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
-import com.proyecto.myattendanceapp.ui.confirmacion.ConfirmacionEntradaActivity
+import com.proyecto.myattendanceapp.databinding.ActivitySalidaBinding
+import com.proyecto.myattendanceapp.ui.confirmacion.ConfirmacionSalidaActivity
 import java.io.File
 
-class MarcarEntradaActivity : AppCompatActivity() {
+class MarcarSalidaActivity : AppCompatActivity() {
 
-        private lateinit var binding: ActivityEntradaBinding
-        private lateinit var fusedLocationClient: FusedLocationProviderClient
-        private var latitud: Double? = null
-        private var longitud: Double? = null
-        private var fotoUri: Uri? = null
+    private lateinit var binding: ActivitySalidaBinding
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var latitud: Double? = null
+    private var longitud: Double? = null
+    private var fotoUri: Uri? = null
 
     private val cameraPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
@@ -40,20 +40,20 @@ class MarcarEntradaActivity : AppCompatActivity() {
             Toast.makeText(this, "Resultado cámara: $success", Toast.LENGTH_LONG).show()
 
             if (success && fotoUri != null) {
-                binding.imgPreviewFoto.setImageURI(fotoUri)
-                binding.imgPreviewFoto.visibility = View.VISIBLE
-                binding.txtFotoEstado.text = "Fotografía capturada correctamente"
-                binding.btnContinuar.visibility = View.VISIBLE
+                binding.imgPreviewFotosalida.setImageURI(fotoUri)
+                binding.imgPreviewFotosalida.visibility = View.VISIBLE
+                binding.txtFotoEstadosalida.text = "Fotografía capturada correctamente"
+                binding.btnContinuarsalida.visibility = View.VISIBLE
             } else {
-                binding.txtFotoEstado.text = "No se capturó la fotografía"
-                binding.btnContinuar.isEnabled = true
+                binding.txtFotoEstadosalida.text = "No se capturó la fotografía"
+                binding.btnContinuarsalida.isEnabled = true
             }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityEntradaBinding.inflate(layoutInflater)
+        binding = ActivitySalidaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         fusedLocationClient =
@@ -61,18 +61,18 @@ class MarcarEntradaActivity : AppCompatActivity() {
 
         obtenerUbicacion()
 
-        binding.btnCancelar.setOnClickListener {
+        binding.btnCancelarsalida.setOnClickListener {
             finish()
         }
 
-        binding.btnFoto.setOnClickListener {
+        binding.btnFotosalida.setOnClickListener {
             verificarPermisoCamara()
         }
 
-        binding.btnContinuar.visibility = View.GONE
+        binding.btnContinuarsalida.visibility = View.GONE
 
-        binding.btnContinuar.setOnClickListener {
-            val intent = Intent(this, ConfirmacionEntradaActivity::class.java)
+        binding.btnContinuarsalida.setOnClickListener {
+            val intent = Intent(this, ConfirmacionSalidaActivity::class.java)
             intent.putExtra("latitud", latitud ?: 0.0)
             intent.putExtra("longitud", longitud ?: 0.0)
             intent.putExtra("fotoUri", fotoUri?.toString())
@@ -107,12 +107,12 @@ class MarcarEntradaActivity : AppCompatActivity() {
                 latitud = location.latitude
                 longitud = location.longitude
 
-                binding.txtGpsEstado.text =
+                binding.txtGpsEstadosalida.text =
                     "GPS capturado correctamente"
 
             } else {
 
-                binding.txtGpsEstado.text =
+                binding.txtGpsEstadosalida.text =
                     "No se pudo obtener ubicación"
             }
         }
@@ -154,7 +154,7 @@ class MarcarEntradaActivity : AppCompatActivity() {
     private fun abrirCamara() {
         try {
             val archivoFoto = File.createTempFile(
-                "entrada_${System.currentTimeMillis()}",
+                "salida_${System.currentTimeMillis()}",
                 ".jpg",
                 externalCacheDir
             )

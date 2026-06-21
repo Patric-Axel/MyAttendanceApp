@@ -45,6 +45,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/txtGpsEstadosalida"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cargando_gps"
@@ -56,7 +57,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:cardCornerRadius="10dp">
 
@@ -73,17 +74,26 @@
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:id="@+id/txtFotoEstadosalida"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/btn_cancelar"
+                    android:text="@string/subtitulo_foto_1"
                     android:textSize="12sp"/>
+
+                <ImageView
+                    android:id="@+id/imgPreviewFotosalida"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="15dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/btnFotoSalida"
+            android:id="@+id/btnFotosalida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_tomar_fotografia"
@@ -92,12 +102,24 @@
             android:layout_marginTop="25dp"/>
 
         <Button
-            android:id="@+id/btnCancelarSalida"
+            android:id="@+id/btnContinuarsalida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/btn_aceptar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/fucsia"
+            android:layout_marginTop="15dp"
+            android:enabled="true"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btnCancelarsalida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/azul"
+            android:textColor="@color/white"
             android:text="@string/btn_cancelar"
             android:layout_marginTop="10dp"/>
-
 
     </LinearLayout>
 

@@ -25,7 +25,9 @@
         <activity android:name=".ui.auth.RegistroActivity" />
         <activity android:name=".ui.home.DashboardActivity" />
         <activity android:name=".ui.asistencia.MarcarEntradaActivity" />
+        <activity android:name=".ui.asistencia.MarcarSalidaActivity" />
         <activity android:name=".ui.confirmacion.ConfirmacionEntradaActivity" />
+        <activity android:name=".ui.confirmacion.ConfirmacionSalidaActivity" />
 
 
         <activity

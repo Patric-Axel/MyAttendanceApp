@@ -1,5 +1,6 @@
 package com.proyecto.myattendanceapp.ui.home
 
+import com.proyecto.myattendanceapp.ui.asistencia.MarcarSalidaActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -50,7 +51,9 @@ class DashboardActivity : AppCompatActivity() {
                     Intent(this, MarcarEntradaActivity::class.java)
                 )
             } else if (tieneEntrada && !tieneSalida) {
-                Toast.makeText(this, "Registrar salida pendiente", Toast.LENGTH_SHORT).show()
+                startActivity(
+                    Intent(this, MarcarSalidaActivity::class.java)
+                )
             }
         }
     }
@@ -95,9 +98,24 @@ class DashboardActivity : AppCompatActivity() {
                         tieneEntrada = asistencia.horaentrada != null
                         tieneSalida = asistencia.horasalida != null
 
-                        if (tieneEntrada && !tieneSalida) {
-                            binding.txtMensajeSalida.text = "Entrada registrada correctamente"
-                            binding.btnMarcarAsistencia.text = "Registrar salida"
+                        when {
+                            !tieneEntrada -> {
+                                binding.txtMensajeSalida.text = "Aún no has registrado tu entrada"
+                                binding.btnMarcarAsistencia.text = "Registrar entrada"
+                                binding.btnMarcarAsistencia.isEnabled = true
+                            }
+
+                            tieneEntrada && !tieneSalida -> {
+                                binding.txtMensajeSalida.text = "Entrada registrada correctamente"
+                                binding.btnMarcarAsistencia.text = "Registrar salida"
+                                binding.btnMarcarAsistencia.isEnabled = true
+                            }
+
+                            tieneEntrada && tieneSalida -> {
+                                binding.txtMensajeSalida.text = "Asistencia completada correctamente"
+                                binding.btnMarcarAsistencia.text = "✓ Completado"
+                                binding.btnMarcarAsistencia.isEnabled = false
+                            }
                         }
 
                     } else {

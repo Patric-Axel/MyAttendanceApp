@@ -45,6 +45,7 @@
                 android:text="@string/fecha"/>
 
             <TextView
+                android:id="@+id/txtFechaConfirmacionsalida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="16/05/2025"/>
@@ -63,6 +64,7 @@
                 android:text="@string/hora"/>
 
             <TextView
+                android:id="@+id/txtHoraConfirmacionsalida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="08:15 a.m."/>
@@ -81,19 +83,21 @@
                 android:text="@string/ubicacion"/>
 
             <TextView
+                android:id="@+id/txtUbicacionConfirmacionsalida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Miraflores, Lima"/>
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgFotoConfirmacionsalida"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="25dp"
             android:src="@mipmap/ic_launcher_round"/>
 
         <Button
-            android:id="@+id/btnInicio"
+            android:id="@+id/btnIniciosalida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_incio"
