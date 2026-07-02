@@ -2,7 +2,9 @@ package com.proyecto.myattendanceapp.data.api
 
 import com.proyecto.myattendanceapp.data.model.AsistenciaHoyResponse
 import com.proyecto.myattendanceapp.data.model.AsistenciaResponse
+import com.proyecto.myattendanceapp.data.model.DetalleAsistenciaResponse
 import com.proyecto.myattendanceapp.data.model.EntradaRequest
+import com.proyecto.myattendanceapp.data.model.HistorialAsistenciaResponse
 import com.proyecto.myattendanceapp.data.model.LoginRequest
 import com.proyecto.myattendanceapp.data.model.RegisterRequest
 import com.proyecto.myattendanceapp.data.model.SalidaRequest
@@ -29,4 +31,16 @@ interface ApiService {
 
     @POST("api/asistencia/salida")
     fun registrarSalida(@Body request: SalidaRequest): Call<AsistenciaResponse>
+
+    //HISTORIAL
+    @GET("api/asistencia/usuario/{idusuario}/historial")
+    fun listarHistorial(
+        @Path("idusuario") idusuario: Int
+    ): Call<List<HistorialAsistenciaResponse>>
+
+    //DETALLE HISTORIAL
+    @GET("api/asistencia/{idasistencia}/detalle")
+    fun obtenerDetalleAsistencia(
+        @Path("idasistencia") idasistencia: Int
+    ): Call<DetalleAsistenciaResponse>
 }

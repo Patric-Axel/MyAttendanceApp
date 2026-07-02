@@ -1,8 +1,7 @@
 package com.proyecto.myattendanceapp.data.model
 
-data class AsistenciaHoyResponse(
-    val success: Boolean?,
-    val message: String?,
+data class HistorialAsistenciaResponse(
+    val idasistencia: Int,
     val fecha: String?,
     val horaentrada: String?,
     val horasalida: String?,

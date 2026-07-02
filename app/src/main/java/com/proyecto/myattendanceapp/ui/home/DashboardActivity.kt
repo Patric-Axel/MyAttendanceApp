@@ -10,6 +10,7 @@ import com.proyecto.myattendanceapp.data.api.ApiClient
 import com.proyecto.myattendanceapp.data.model.AsistenciaHoyResponse
 import com.proyecto.myattendanceapp.databinding.ActivityDashboardBinding
 import com.proyecto.myattendanceapp.ui.asistencia.MarcarEntradaActivity
+import com.proyecto.myattendanceapp.ui.perfil.PerfilActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,7 +34,32 @@ class DashboardActivity : AppCompatActivity() {
         cargarFecha()
         mostrarAsistenciaVacia()
         configurarBoton()
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+
+            when (item.itemId) {
+
+                R.id.nav_inicio -> {
+                    true
+                }
+
+                R.id.nav_historial -> {
+                    startActivity(Intent(this, HistorialActivity::class.java))
+                    true
+                }
+
+                R.id.nav_perfil -> {
+                    startActivity(Intent(this, PerfilActivity::class.java))
+                    true
+                }
+
+                else -> false
+            }
+        }
+
     }
+
+
 
     override fun onResume() {
         super.onResume()
@@ -89,6 +115,19 @@ class DashboardActivity : AppCompatActivity() {
                     if (response.isSuccessful && response.body() != null) {
                         val asistencia = response.body()!!
 
+                        if (asistencia.estado == "Falta") {
+                            binding.txtEstadoDia.text = "Falta"
+                            binding.txtMensajeSalida.text = "Horario excedido. Se registró falta."
+                            binding.txtHoraEntrada.text = "--:--"
+                            binding.txtHoraSalida.text = "--:--"
+                            binding.txtHorasTrabajadas.text = "0 h"
+                            binding.btnMarcarAsistencia.text = "Falta registrada"
+                            binding.btnMarcarAsistencia.isEnabled = false
+                            tieneEntrada = false
+                            tieneSalida = false
+                            return
+                        }
+
                         binding.txtEstadoDia.text = asistencia.estado ?: "Registrado"
                         binding.txtHoraEntrada.text = asistencia.horaentrada ?: "--:--"
                         binding.txtHoraSalida.text = asistencia.horasalida ?: "--:--"
@@ -140,5 +179,7 @@ class DashboardActivity : AppCompatActivity() {
                 }
             })
     }
+
+
 
 }
