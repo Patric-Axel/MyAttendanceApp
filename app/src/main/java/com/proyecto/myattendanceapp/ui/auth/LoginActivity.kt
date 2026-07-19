@@ -90,6 +90,9 @@ import com.proyecto.myattendanceapp.databinding.ActivityLoginBinding
                                 .putString("email", respuesta.email ?: "")
                                 .putInt("idrol", respuesta.idrol ?: 0)
                                 .putInt("idestado", respuesta.idestado ?: 0)
+                                .putString("celular", respuesta.celular ?: "")
+                                .putString("direccion", respuesta.direccion ?: "")
+                                .putString("fotoperfil", respuesta.fotoperfil ?: "")
                                 .apply()
 
                             Toast.makeText(this@LoginActivity, respuesta.message, Toast.LENGTH_SHORT).show()

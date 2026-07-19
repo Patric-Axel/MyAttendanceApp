@@ -31,7 +31,9 @@
         <activity android:name=".ui.asistencia.MarcarSalidaActivity" />
         <activity android:name=".ui.confirmacion.ConfirmacionEntradaActivity" />
         <activity android:name=".ui.confirmacion.ConfirmacionSalidaActivity" />
-
+        <!-- <activity android:name=".ui.perfil.CambiarPasswordActivity" /> -->
+        <activity android:name=".ui.perfil.InformacionPersonalActivity" />
+        <activity android:name=".ui.perfil.PerfilActivity" />
 
         <activity
             android:name=".MainActivity"

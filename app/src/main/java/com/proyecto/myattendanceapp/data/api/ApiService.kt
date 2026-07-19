@@ -1,11 +1,13 @@
 package com.proyecto.myattendanceapp.data.api
 
+import com.proyecto.myattendanceapp.data.model.ActualizarPerfilRequest
 import com.proyecto.myattendanceapp.data.model.AsistenciaHoyResponse
 import com.proyecto.myattendanceapp.data.model.AsistenciaResponse
 import com.proyecto.myattendanceapp.data.model.DetalleAsistenciaResponse
 import com.proyecto.myattendanceapp.data.model.EntradaRequest
 import com.proyecto.myattendanceapp.data.model.HistorialAsistenciaResponse
 import com.proyecto.myattendanceapp.data.model.LoginRequest
+import com.proyecto.myattendanceapp.data.model.PerfilResponse
 import com.proyecto.myattendanceapp.data.model.RegisterRequest
 import com.proyecto.myattendanceapp.data.model.SalidaRequest
 import com.proyecto.myattendanceapp.data.model.SesionResponse
@@ -13,6 +15,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {
@@ -43,4 +46,11 @@ interface ApiService {
     fun obtenerDetalleAsistencia(
         @Path("idasistencia") idasistencia: Int
     ): Call<DetalleAsistenciaResponse>
+
+    //ACTUALIZAR PERFIL NOMBRE Y DIRECCION
+    @PUT("api/actualizar/{idusuario}")
+    fun actualizarPerfil(
+        @Path("idusuario") idusuario: Int,
+        @Body request: ActualizarPerfilRequest
+    ): Call<PerfilResponse>
 }
