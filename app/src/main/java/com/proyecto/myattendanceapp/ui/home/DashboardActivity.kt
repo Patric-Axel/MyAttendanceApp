@@ -11,6 +11,7 @@ import com.proyecto.myattendanceapp.data.model.AsistenciaHoyResponse
 import com.proyecto.myattendanceapp.databinding.ActivityDashboardBinding
 import com.proyecto.myattendanceapp.ui.asistencia.MarcarEntradaActivity
 import com.proyecto.myattendanceapp.ui.perfil.PerfilActivity
+import com.proyecto.myattendanceapp.ui.utils.BottomNavigationHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,27 +36,12 @@ class DashboardActivity : AppCompatActivity() {
         mostrarAsistenciaVacia()
         configurarBoton()
 
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
+        BottomNavigationHelper.configurar(
+            this,
+            binding.bottomNavigation,
+            R.id.nav_inicio
+        )
 
-            when (item.itemId) {
-
-                R.id.nav_inicio -> {
-                    true
-                }
-
-                R.id.nav_historial -> {
-                    startActivity(Intent(this, HistorialActivity::class.java))
-                    true
-                }
-
-                R.id.nav_perfil -> {
-                    startActivity(Intent(this, PerfilActivity::class.java))
-                    true
-                }
-
-                else -> false
-            }
-        }
 
     }
 

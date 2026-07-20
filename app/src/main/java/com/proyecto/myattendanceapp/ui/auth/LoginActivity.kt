@@ -19,6 +19,26 @@ import com.proyecto.myattendanceapp.databinding.ActivityLoginBinding
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
 
+            val prefs =
+                getSharedPreferences(
+                    "MY_ATTENDANCE",
+                    MODE_PRIVATE
+                )
+
+            if (prefs.contains("idusuario")) {
+
+                startActivity(
+                    Intent(
+                        this,
+                        DashboardActivity::class.java
+                    )
+                )
+
+                finish()
+
+                return
+            }
+
             binding = ActivityLoginBinding.inflate(layoutInflater)
             setContentView(binding.root)
 
